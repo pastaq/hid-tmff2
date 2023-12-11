@@ -633,6 +633,11 @@ static int tmff2_probe(struct hid_device *hdev, const struct hid_device_id *id)
 				goto wheel_err;
 			break;
 
+		case TMX_ACTIVE:
+			if ((ret = tmx_populate_api(tmff2)))
+				goto wheel_err;
+			break;
+
 		default:
 			ret = -ENODEV;
 			goto wheel_err;
@@ -727,6 +732,8 @@ static const struct hid_device_id tmff2_devices[] = {
 	{HID_USB_DEVICE(USB_VENDOR_ID_THRUSTMASTER, TMT248_PC_ID)},
 	/* tx */
 	{HID_USB_DEVICE(USB_VENDOR_ID_THRUSTMASTER, TX_ACTIVE)},
+	/* tmx */
+	{HID_USB_DEVICE(USB_VENDOR_ID_THRUSTMASTER, TMX_ACTIVE)},
 
 	{}
 };

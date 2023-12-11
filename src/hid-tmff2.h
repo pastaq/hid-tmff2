@@ -102,6 +102,7 @@ struct tmff2_device_entry {
 int t300rs_populate_api(struct tmff2_device_entry *tmff2);
 int t248_populate_api(struct tmff2_device_entry *tmff2);
 int tx_populate_api(struct tmff2_device_entry *tmff2);
+int tmx_populate_api(struct tmff2_device_entry *tmff2);
 
 #define TMT300RS_PS3_NORM_ID	0xb66e
 #define TMT300RS_PS3_ADV_ID	0xb66f
@@ -110,9 +111,10 @@ int tx_populate_api(struct tmff2_device_entry *tmff2);
 #define TMT248_PC_ID		0xb696
 
 #define TX_ACTIVE               0xb669
+#define TMX_ACTIVE              0xb67f
 
 /* APIs to different wheel families */
-/* T248 and TX at least uses the T300RS api, not sure if there are other wheels
+/* T248, TX, and TMX use the T300RS api, not sure if there are other wheels
  * but that's why these functions are given global linkage */
 
 struct t300rs_device_entry {
